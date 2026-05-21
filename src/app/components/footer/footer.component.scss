@@ -1,0 +1,178 @@
+@import '../../../styles.scss';
+
+$color-bertis-wine: #611A2B;
+$color-bertis-dark: #3a0d17;
+$color-bertis-pink: #D3A2B0;
+$color-text-dark: #4A101E;
+
+.footer {
+  width: 100%;
+  background-color: #fdfdfd; // Fundo off-white elegante
+  padding: 80px 0 40px 0;
+  box-sizing: border-box;
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
+
+  .cta-box {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 45px auto;
+
+    h2 {
+      font-size: 2.3rem;
+      color: $color-text-dark;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+
+      @media (max-width: 768px) {
+        font-size: 1.7rem;
+      }
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #666;
+      line-height: 1.6;
+      font-weight: 400;
+
+      @media (max-width: 768px) {
+        font-size: 0.95rem;
+      }
+    }
+  }
+
+  .channels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 60px;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+  .channel-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #ffffff;
+    border: 1px solid rgba($color-bertis-wine, 0.12);
+    padding: 16px 28px;
+    border-radius: 14px;
+    text-decoration: none;
+    min-width: 260px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    @media (max-width: 600px) {
+      width: 100%;
+      box-sizing: border-box;
+      justify-content: center;
+    }
+
+    // --- CORREÇÃO DO HOVER: Transforma fundo e textos em branco ---
+    &:hover {
+      transform: translateY(-3px);
+      background-color: $color-bertis-wine; // Fundo do botão vira vinho
+      border-color: $color-bertis-wine;
+      box-shadow: 0 12px 24px rgba($color-bertis-wine, 0.2);
+
+      // Caixa do ícone fica branca para dar contraste
+      .icon-wrapper {
+        background-color: #ffffff;
+        
+        .channel-icon, ::ng-deep svg {
+          color: $color-bertis-wine !important; // Ícone interno vira vinho
+        }
+      }
+
+      // Força os textos do grupo a ficarem brancos no hover
+      .text-group {
+        .subtitle {
+          color: rgba(255, 255, 255, 0.7) !important; // Branco com leve transparência refinada
+        }
+        .main-text {
+          color: #ffffff !important; // Branco puro
+        }
+      }
+    }
+
+    .icon-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background-color: rgba($color-bertis-wine, 0.06);
+      border-radius: 10px;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+
+      .channel-icon, ::ng-deep svg {
+        width: 22px !important;
+        height: 22px !important;
+        color: $color-bertis-wine;
+        display: block;
+        transition: color 0.3s ease;
+      }
+    }
+
+    .text-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+
+      .subtitle {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: #999;
+        letter-spacing: 1px;
+        margin-bottom: 2px;
+        transition: color 0.3s ease; // Transição suave da cor
+      }
+
+      .main-text {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: $color-text-dark;
+        transition: color 0.3s ease; // Transição suave da cor
+      }
+    }
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #888;
+    font-size: 0.88rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .copyright {
+      margin: 0;
+    }
+
+    .brand-slogan {
+      margin: 0;
+      font-weight: 600;
+      color: $color-bertis-wine;
+    }
+  }
+}

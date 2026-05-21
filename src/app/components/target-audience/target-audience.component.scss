@@ -1,0 +1,230 @@
+@import '../../../styles.scss';
+
+// --- Mixins de Responsividade ---
+@mixin mobile {
+  @media (max-width: 768px) { @content; }
+}
+
+@mixin tablet {
+  @media (min-width: 769px) and (max-width: 1024px) { @content; }
+}
+
+// --- Container Principal ---
+.audience-section {
+  width: 100%;
+  padding: 100px 0;
+  background-color: #fdfdfd; 
+  box-sizing: border-box;
+
+  @include mobile {
+    padding: 60px 0; 
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; 
+    display: grid;
+    grid-template-columns: 1fr 2fr; 
+    gap: 60px;
+    align-items: start;
+    box-sizing: border-box;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+}
+
+// --- Coluna do Título Principal ---
+.title-column {
+  position: sticky; 
+  top: 100px;
+
+  @include mobile {
+    position: static;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+    color: #4A101E; 
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+
+    @include mobile {
+      font-size: 2.2rem;
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 350px;
+
+    @include mobile {
+      margin: 0 auto;
+    }
+  }
+}
+
+// --- Grid de Cards ---
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 20px; // Remove o padding duplo que espremia os cards nas bordas
+  }
+
+  @include tablet {
+    grid-template-columns: 1fr; 
+  }
+}
+
+// --- Estilo do Card Premium ---
+.premium-card {
+  background: #ffffff;
+  border: 1px solid rgba(134, 48, 67, 0.1);
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  align-items: center; // Centraliza verticalmente
+  justify-content: space-evenly; // Espaça o texto à esquerda e ícone à direita
+  gap: 20px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  position: relative;
+  overflow: hidden;
+
+  // AJUSTE MOBILE: Muda a direção para linha para encaixar o ícone perfeitamente ao lado do texto
+  @include mobile {
+    flex-direction: row; 
+    align-items: flex-start; // Alinha o ícone pelo topo do título, evitando desalinhamento
+    gap: 16px; // Espaçamento ideal entre a caixa do ícone e o texto
+    padding: 24px; // Redução sutil interna para não ocupar a tela inteira do celular
+    align-items: center;
+  }
+
+  // --- Efeito de Hover ---
+  &:hover {
+    transform: translateY(-8px); 
+    background-color: #611A2B; 
+    box-shadow: 0 20px 40px rgba(74, 16, 30, 0.2); 
+    border-color: #611A2B;
+
+    @include mobile {
+      transform: translateY(-4px); // Flutuação mais suave no mobile para melhor usabilidade
+    }
+
+    .icon-box {
+      background-color: #ffffff !important; 
+      transform: scale(1.05);
+
+      .lucide-icon, ::ng-deep svg {
+        color: #611A2B !important;
+      }
+    }
+
+    .card-content {
+      h3 {
+        color: #ffffff !important;
+      }
+      p {
+        color: rgba(255, 255, 255, 0.85) !important; 
+      }
+    }
+
+    &::after {
+      transform: translateX(0); 
+    }
+  }
+
+  // Barra de destaque inferior no hover
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #D3A2B0; 
+    transform: translateX(-100%);
+    transition: transform 0.7s ease;
+  }
+
+  // --- Caixa do Ícone ---
+  .icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background-color: rgba(134, 48, 67, 0.05); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0; // Crucial: impede que o ícone amasse ou mude de tamanho no celular
+
+    @include mobile {
+      width: 48px;  // Tamanho levemente reduzido e proporcional para telas menores
+      height: 48px;
+      border-radius: 10px;
+    }
+
+    .lucide-icon, ::ng-deep svg {
+      width: 28px !important;
+      height: 28px !important;
+      color: #863043;
+      transition: color 0.3s ease;
+
+      @include mobile {
+        width: 22px !important; // Ícone interno adaptado ao tamanho da caixa mobile
+        height: 22px !important;
+      }
+    }
+  }
+
+  // --- Bloco de Conteúdo (Textos) ---
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left; // Garante alinhamento à esquerda mesmo se o container pai mudar
+
+    h3 {
+      font-size: 1.3rem;
+      color: #4A101E;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+      transition: color 0.3s ease;
+
+      @include mobile {
+        font-size: 1.15rem; // Fonte mais legível e harmônica no celular
+        margin-bottom: 6px;
+        line-height: 1.3;
+      }
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+      transition: color 0.3s ease;
+
+      @include mobile {
+        font-size: 0.88rem; // Ajuste fino no tamanho do parágrafo explicativo
+        line-height: 1.5;
+      }
+    }
+  }
+}

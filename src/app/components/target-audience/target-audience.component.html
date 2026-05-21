@@ -1,0 +1,11 @@
+<div class="cards-grid">
+  <div class="premium-card" *ngFor="let item of segments">
+    <div class="icon-box">
+      <lucide-icon [img]="item.icon" class="lucide-icon"></lucide-icon>
+    </div>
+    <div class="card-content">
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.desc }}</p>
+    </div>
+  </div>
+</div>

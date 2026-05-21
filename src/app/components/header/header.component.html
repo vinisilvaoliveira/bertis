@@ -1,0 +1,50 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <img src="assets/logo-bertis-removebg.png" alt="BERTIS Assessoria e Contabilidade">
+    </div>
+    <a href="https://wa.me/5511988791883" target="_blank" class="btn-nav">
+      <lucide-icon [img]="icons.phone" class="btn-icon"></lucide-icon>
+      <span>Fale Conosco</span>
+    </a>
+  </div>
+</nav>
+
+<header class="hero-carousel">
+  <div 
+    *ngFor="let slide of slides; let i = index" 
+    class="slide" 
+    [class.active]="i === currentSlide"
+  >
+    <div class="slide-bg" [ngClass]="slide.imageClass"></div>
+    <div class="slide-overlay"></div>
+    
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="badge">{{ slide.badge }}</span>
+        <h2>{{ slide.title }}<br><span class="highlight">{{ slide.highlight }}</span></h2>
+        <p>{{ slide.desc }} <b style="font-weight: bold;">impulsionar o seu negócio.</b></p>
+        <div class="hero-actions">
+          <!-- <a href="#servicos" class="btn-primary">Conhecer Soluções</a> -->
+          <a href="https://instagram.com/bertiscontabil" target="_blank" class="btn-primary">
+            <lucide-icon [img]="icons.instagram" class="icon"></lucide-icon>
+            Instagram
+          </a>
+          <a href="https://wa.me/5511988791883" target="_blank" class="btn-secondary">
+            <lucide-icon [img]="icons.phone" class="icon"></lucide-icon>
+            11 98879-1883
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-indicators">
+    <span 
+      *ngFor="let slide of slides; let i = index" 
+      class="dot" 
+      [class.active]="i === currentSlide"
+      (click)="setSlide(i)"
+    ></span>
+  </div>
+</header>

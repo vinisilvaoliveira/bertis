@@ -1,0 +1,318 @@
+@import '../../../styles.scss';
+
+// Cores institucionais baseadas no logo enviado
+$color-bertis-wine: #611A2B;
+$color-bertis-dark: #3a0d17;
+$color-bertis-pink: #D3A2B0;
+$color-white: #FFFFFF;
+$color-text-light: #F5F5F5;
+
+.navbar {
+    position: sticky;
+    top: 0;
+    background: $color-bertis-wine; // Fundo escuro idêntico ao do logo
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    .nav-container {
+        @include container-center;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        img {
+            width: 50%; // Aumentamos de 48px para 70px para logos quadrados/proporção 1:1 ficarem legíveis
+            object-fit: contain;
+            padding: 5px 0;
+
+            @media (max-width: 576px) {
+                width: 70%;
+            }
+        }
+    }
+
+    .btn-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center; // Centraliza o ícone perfeitamente no mobile
+        gap: 8px;
+        padding: 10px 20px;
+        background: transparent;
+        border: 1.5px solid $color-bertis-pink;
+        color: $color-white;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 6px;
+        @include transition-smooth;
+
+        // Garante rigidez de tamanho para o ícone do Lucide
+        .btn-icon, ::ng-deep svg {
+            width: 16px !important;
+            height: 16px !important;
+            color: $color-bertis-pink;
+            transition: color 0.3s ease;
+        }
+
+        &:hover {
+            background: $color-bertis-pink;
+            color: $color-bertis-wine;
+
+            .btn-icon, ::ng-deep svg {
+                color: $color-bertis-wine !important;
+            }
+        }
+
+        // --- CORREÇÃO DO MOBILE ---
+        // Em telas menores que 768px (Mobile padrão) removemos o texto e deixamos o botão quadrado
+        @media (max-width: 768px) {
+            padding: 12px; // Transforma o botão em um quadrado perfeito anatômico
+            border-radius: 8px;
+            gap: 0;
+
+            span {
+                display: none !important; // Some com o texto "Fale Conosco" para não esmagar a tela
+            }
+
+            .btn-icon, ::ng-deep svg {
+                width: 18px !important; // Aumenta levemente o ícone no celular para facilitar o clique
+                height: 18px !important;
+            }
+        }
+    }
+}
+
+// --- Hero Carrossel Completamente Consolidado (Sem Duplicidade) ---
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 85vh; // Excelente proporção tanto para Desktop quanto Mobile
+    min-height: 580px;
+    background: $color-bertis-dark;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+        height: 75vh; // Mobile ligeiramente menor para focar na leitura inicial
+    }
+
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+        z-index: 1;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 2;
+        }
+    }
+
+    .slide-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center 15%;
+        background-repeat: no-repeat;
+
+        // Suas 4 imagens configuradas corretamente
+        &.slide-1 {
+            background-image: url('/assets/foto-cafe.jpeg');
+        }
+
+        &.slide-2 {
+            background-image: url('/assets/mesa-com-note.jpeg');
+        }
+
+        &.slide-3 {
+            background-image: url('/assets/note-mesa.jpeg');
+        }
+
+        &.slide-4 {
+            background-image: url('/assets/san-sentada-bia-pe.jpeg');
+        }
+    }
+
+    // Máscara gradiente para dar contraste às fontes brancas sobre as imagens
+    .slide-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, rgba($color-bertis-dark, 0.9) 0%, rgba($color-bertis-dark, 0.6) 50%, rgba(0, 0, 0, 0.2) 100%);
+
+        @media (max-width: 768px) {
+            background: linear-gradient(180deg, rgba($color-bertis-dark, 0.9) 0%, rgba($color-bertis-dark, 0.7) 100%);
+        }
+    }
+
+    .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        padding: 0 20px;
+        position: relative;
+        z-index: 3;
+    }
+
+    .hero-content {
+        max-width: 650px;
+        color: $color-white;
+
+        @media (max-width: 768px) {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba($color-bertis-pink, 0.2);
+            border: 1px solid rgba($color-bertis-pink, 0.4);
+            color: $color-bertis-pink;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+
+            .highlight {
+                color: $color-bertis-pink;
+                text-transform: uppercase;
+                font-size: 2.4rem;
+                display: block;
+                margin-top: 5px;
+            }
+
+            @media (max-width: 768px) {
+                font-size: 2.2rem;
+
+                .highlight {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+
+        p {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            font-weight: 300;
+            color: $color-text-light;
+
+            @media (max-width: 768px) {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    // Estilização das bolinhas do carrossel
+    .carousel-indicators {
+        position: absolute;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 12px;
+        z-index: 10;
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &.active {
+                background: $color-bertis-pink;
+                transform: scale(1.2);
+                width: 24px; // Efeito moderno de traço esticado na bolinha ativa
+                border-radius: 6px;
+            }
+        }
+    }
+}
+
+// Estilo dos botões de ação do Hero
+.hero-actions {
+    display: flex;
+    gap: 16px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 32px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+
+        @media (max-width: 768px) {
+            width: 100%;
+            max-width: 300px;
+        }
+    }
+
+    .btn-primary {
+        background: $color-bertis-pink;
+        color: $color-bertis-dark;
+
+        &:hover {
+            background: $color-white;
+            color: $color-bertis-wine;
+        }
+    }
+
+    .btn-secondary {
+        border: 1.5px solid rgba(255, 255, 255, 0.4);
+        color: $color-white;
+
+        .icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    }
+}

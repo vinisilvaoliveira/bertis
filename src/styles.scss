@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+// Cores Institucionais Bertis - Paleta Premium
+$color-brand-dark: #4A101E;    // Vinho Profundo / Premium
+$color-brand-main: #611A2B;    // Bordô Corporativo
+$color-brand-light: #F4EAEB;   // Off-white rosado (suave para fundos)
+$color-accent: #D3A2B0;        // Rosa Seco (para detalhes e hovers)
+$color-text-dark: #1F2226;     // Cinza Escuro Antracite (leitura confortável)
+$color-text-muted: #667085;    // Cinza Neutro para textos secundários
+$color-white: #FFFFFF;
+
+@mixin transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@mixin container-center {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: $color-white;
+  color: $color-text-dark;
+  -webkit-font-smoothing: antialiased;
+}
