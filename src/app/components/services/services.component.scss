@@ -1,15 +1,15 @@
 @import '../../../styles.scss';
 
 // Variáveis de cores baseadas na Bertis
-$color-bertis-wine: #611A2B;
-$color-bertis-dark: #3a0d17; // Fundo escuro oficial
-$color-bertis-pink: #D3A2B0;
+$color-brand-main: #732F41;
+$color-brand-dark: #732F41; // Fundo escuro oficial
+$color-accent: #F2C2CF;
 $color-white: #FFFFFF;
 $color-text-muted: #E2D1D5; // Cor suave calculada para leitura perfeita sobre o fundo escuro
 
 .services-section-full {
   width: 100%;
-  background-color: $color-bertis-dark; // Garante o fundo de ponta a ponta na tela
+  background-color: $color-brand-dark; // Garante o fundo de ponta a ponta na tela
   padding: 100px 0; // Espaçamento generoso para respirar
   box-sizing: border-box;
   margin-top: 60px;
@@ -40,7 +40,7 @@ $color-text-muted: #E2D1D5; // Cor suave calculada para leitura perfeita sobre o
       letter-spacing: -0.5px;
 
       .highlight {
-        color: $color-bertis-pink;
+        color: $color-accent;
       }
 
       @media (max-width: 768px) {
@@ -75,7 +75,7 @@ $color-text-muted: #E2D1D5; // Cor suave calculada para leitura perfeita sobre o
     display: flex;
     gap: 24px;
     background: rgba($color-white, 0.04); // Fundo translúcido sutil e sofisticado
-    border: 1px solid rgba($color-bertis-pink, 0.15);
+    border: 1px solid rgba($color-accent, 0.15);
     border-radius: 12px;
     padding: 32px;
     transition: all 0.3s ease;
@@ -84,7 +84,7 @@ $color-text-muted: #E2D1D5; // Cor suave calculada para leitura perfeita sobre o
     &:hover {
       transform: translateY(-4px);
       background: rgba($color-white, 0.07);
-      border-color: rgba($color-bertis-pink, 0.3);
+      border-color: rgba($color-accent, 0.3);
     }
 
     @media (max-width: 576px) {
@@ -102,14 +102,14 @@ $color-text-muted: #E2D1D5; // Cor suave calculada para leitura perfeita sobre o
       justify-content: center;
       width: 56px;
       height: 56px;
-      background: rgba($color-bertis-pink, 0.15);
+      background: rgba($color-accent, 0.15);
       border-radius: 10px;
       flex-shrink: 0; // Impede o ícone de amassar quando o texto for longo
 
       .card-icon {
         width: 26px;
         height: 26px;
-        color: $color-bertis-pink;
+        color: $color-accent;
       }
     }
 

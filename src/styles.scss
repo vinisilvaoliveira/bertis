@@ -1,8 +1,8 @@
 // Cores Institucionais Bertis - Paleta Premium
-$color-brand-dark: #4A101E;    // Vinho Profundo / Premium
-$color-brand-main: #611A2B;    // Bordô Corporativo
-$color-brand-light: #F4EAEB;   // Off-white rosado (suave para fundos)
-$color-accent: #D3A2B0;        // Rosa Seco (para detalhes e hovers)
+$color-brand-dark: #732F41;    // Vinho Profundo / Premium
+$color-brand-main: #732F41;    // Bordô Corporativo
+$color-brand-light: #F2F2F2;   // Off-white rosado (suave para fundos)
+$color-accent: #F2C2CF;        // Rosa Seco (para detalhes e hovers)
 $color-text-dark: #1F2226;     // Cinza Escuro Antracite (leitura confortável)
 $color-text-muted: #667085;    // Cinza Neutro para textos secundários
 $color-white: #FFFFFF;
@@ -28,4 +28,8 @@ body {
   background-color: $color-white;
   color: $color-text-dark;
   -webkit-font-smoothing: antialiased;
+}
+
+section {
+  scroll-margin-top: 80px; // Ajuste conforme a altura da sua barra (80px)
 }

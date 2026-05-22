@@ -1,16 +1,16 @@
 @import '../../../styles.scss';
 
 // Cores institucionais baseadas no logo enviado
-$color-bertis-wine: #611A2B;
-$color-bertis-dark: #3a0d17;
-$color-bertis-pink: #D3A2B0;
+$color-brand-main: #732F41;
+$color-brand-dark: #732F41;
+$color-accent: #F2C2CF;
 $color-white: #FFFFFF;
 $color-text-light: #F5F5F5;
 
 .navbar {
     position: sticky;
     top: 0;
-    background: $color-bertis-wine; // Fundo escuro idêntico ao do logo
+    background: $color-brand-main; // Fundo escuro idêntico ao do logo
     z-index: 100;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 
@@ -46,7 +46,7 @@ $color-text-light: #F5F5F5;
         gap: 8px;
         padding: 10px 20px;
         background: transparent;
-        border: 1.5px solid $color-bertis-pink;
+        border: 1.5px solid $color-accent;
         color: $color-white;
         text-decoration: none;
         font-weight: 700;
@@ -60,16 +60,16 @@ $color-text-light: #F5F5F5;
         .btn-icon, ::ng-deep svg {
             width: 16px !important;
             height: 16px !important;
-            color: $color-bertis-pink;
+            color: $color-accent;
             transition: color 0.3s ease;
         }
 
         &:hover {
-            background: $color-bertis-pink;
-            color: $color-bertis-wine;
+            background: $color-accent;
+            color: $color-brand-main;
 
             .btn-icon, ::ng-deep svg {
-                color: $color-bertis-wine !important;
+                color: $color-brand-main !important;
             }
         }
 
@@ -98,7 +98,7 @@ $color-text-light: #F5F5F5;
     width: 100%;
     height: 85vh; // Excelente proporção tanto para Desktop quanto Mobile
     min-height: 580px;
-    background: $color-bertis-dark;
+    background: $color-brand-dark;
     overflow: hidden;
 
     @media (max-width: 768px) {
@@ -160,11 +160,11 @@ $color-text-light: #F5F5F5;
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, rgba($color-bertis-dark, 0.9) 0%, rgba($color-bertis-dark, 0.6) 50%, rgba(0, 0, 0, 0.2) 100%);
+        background: linear-gradient(90deg, rgba($color-brand-dark, 0.9) 0%, rgba($color-brand-dark, 0.6) 50%, rgba(0, 0, 0, 0.2) 100%);
 
-        @media (max-width: 768px) {
-            background: linear-gradient(180deg, rgba($color-bertis-dark, 0.9) 0%, rgba($color-bertis-dark, 0.7) 100%);
-        }
+        // @media (max-width: 768px) {
+        //     background: linear-gradient(180deg, rgba($color-brand-dark, 0.9) 0%, rgba($color-brand-dark, 0.7) 100%);
+        // }
     }
 
     .hero-container {
@@ -188,9 +188,9 @@ $color-text-light: #F5F5F5;
         .badge {
             display: inline-block;
             padding: 6px 16px;
-            background: rgba($color-bertis-pink, 0.2);
-            border: 1px solid rgba($color-bertis-pink, 0.4);
-            color: $color-bertis-pink;
+            background: rgba($color-accent, 0.2);
+            border: 1px solid rgba($color-accent, 0.4);
+            color: $color-accent;
             font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -206,7 +206,7 @@ $color-text-light: #F5F5F5;
             margin-bottom: 20px;
 
             .highlight {
-                color: $color-bertis-pink;
+                color: $color-accent;
                 text-transform: uppercase;
                 font-size: 2.4rem;
                 display: block;
@@ -254,7 +254,7 @@ $color-text-light: #F5F5F5;
             transition: all 0.3s ease;
 
             &.active {
-                background: $color-bertis-pink;
+                background: $color-accent;
                 transform: scale(1.2);
                 width: 24px; // Efeito moderno de traço esticado na bolinha ativa
                 border-radius: 6px;
@@ -293,12 +293,12 @@ $color-text-light: #F5F5F5;
     }
 
     .btn-primary {
-        background: $color-bertis-pink;
-        color: $color-bertis-dark;
+        background: $color-accent;
+        color: $color-brand-dark;
 
         &:hover {
             background: $color-white;
-            color: $color-bertis-wine;
+            color: $color-brand-main;
         }
     }
 
@@ -315,4 +315,56 @@ $color-text-light: #F5F5F5;
             background: rgba(255, 255, 255, 0.1);
         }
     }
+}
+
+
+
+
+// aqui
+
+.menu-toggle {
+    display: none; // Escondido no desktop
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    a { color: white; text-decoration: none; font-weight: 600; }
+  }
+
+  @media (max-width: 768px) {
+    .menu-toggle { display: flex; }
+
+    .nav-links {
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background: #732F41;
+      flex-direction: column;
+      padding: 20px 0;
+      display: none; // Escondido por padrão
+
+      &.active {
+        display: flex; // Mostra quando clicado
+      }
+    }
+  }
+
+// Para o scroll suave funcionar em toda a página:
+html {
+  scroll-behavior: smooth;
 }

@@ -19,6 +19,7 @@ interface Slide {
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   readonly icons = { phone: Phone, instagram: Instagram };
+  isMenuOpen = false;
 
   // Índice do slide que está aparecendo na tela
   currentSlide = 0;
@@ -28,28 +29,28 @@ export class HeaderComponent implements OnInit, OnDestroy {
   slides: Slide[] = [
     {
       imageClass: 'slide-1', // Foto das duas sorrindo na mesa
-      badge: 'Acessoria e Contabilidade',
+      badge: 'Assessoria e Contabilidade',
       title: 'Contabilidade que',
       highlight: 'facilita, organiza e faz crescer',
       desc: 'Soluções contábeis modernas, atendimento próximo e tecnologia para '
     },
     {
       imageClass: 'slide-2', // Foto delas em pé com café e notebook
-      badge: 'Acessoria e Contabilidade',
+      badge: 'Assessoria e Contabilidade',
       title: 'Contabilidade que',
       highlight: 'facilita, organiza e faz crescer',
       desc: 'Soluções contábeis modernas, atendimento próximo e tecnologia para '
     },
     {
       imageClass: 'slide-3', // Foto delas em pé com café e notebook
-      badge: 'Acessoria e Contabilidade',
+      badge: 'Assessoria e Contabilidade',
       title: 'Contabilidade que',
       highlight: 'facilita, organiza e faz crescer',
       desc: 'Soluções contábeis modernas, atendimento próximo e tecnologia para '
     },
     {
       imageClass: 'slide-4', // Foto delas em pé com café e notebook
-      badge: 'Acessoria e Contabilidade',
+      badge: 'Assessoria e Contabilidade',
       title: 'Contabilidade que',
       highlight: 'facilita, organiza e faz crescer',
       desc: 'Soluções contábeis modernas, atendimento próximo e tecnologia para '
@@ -63,6 +64,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.stopCarousel();
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
   startCarousel(): void {

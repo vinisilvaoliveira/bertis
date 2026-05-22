@@ -13,7 +13,7 @@
 .audience-section {
   width: 100%;
   padding: 100px 0;
-  background-color: #fdfdfd; 
+  background-color: #F2F2F2; 
   box-sizing: border-box;
 
   @include mobile {
@@ -49,7 +49,7 @@
 
   h2 {
     font-size: 2.8rem;
-    color: #4A101E; 
+    color: #732F41; 
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 20px;
@@ -71,17 +71,21 @@
     }
   }
 }
-
+.section-title { color: #732F41; text-align: center; font-size: 2.5rem }
+.paraquem {
+  padding: 20px;
+}
 // --- Grid de Cards ---
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
+padding: 30px 20px;
 
   @include mobile {
     grid-template-columns: 1fr;
     gap: 20px;
-    padding: 0 20px; // Remove o padding duplo que espremia os cards nas bordas
+    padding: 30px 20px; // Remove o padding duplo que espremia os cards nas bordas
   }
 
   @include tablet {
@@ -117,9 +121,9 @@
   // --- Efeito de Hover ---
   &:hover {
     transform: translateY(-8px); 
-    background-color: #611A2B; 
+    background-color: #732F41; 
     box-shadow: 0 20px 40px rgba(74, 16, 30, 0.2); 
-    border-color: #611A2B;
+    border-color: #732F41;
 
     @include mobile {
       transform: translateY(-4px); // Flutuação mais suave no mobile para melhor usabilidade
@@ -130,7 +134,7 @@
       transform: scale(1.05);
 
       .lucide-icon, ::ng-deep svg {
-        color: #611A2B !important;
+        color: #732F41 !important;
       }
     }
 
@@ -156,7 +160,7 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background-color: #D3A2B0; 
+    background-color: #F2C2CF; 
     transform: translateX(-100%);
     transition: transform 0.7s ease;
   }
@@ -182,7 +186,7 @@
     .lucide-icon, ::ng-deep svg {
       width: 28px !important;
       height: 28px !important;
-      color: #863043;
+      color: #8C3A58;
       transition: color 0.3s ease;
 
       @include mobile {
@@ -200,7 +204,7 @@
 
     h3 {
       font-size: 1.3rem;
-      color: #4A101E;
+      color: #732F41;
       font-weight: 700;
       margin-top: 0;
       margin-bottom: 10px;

@@ -1,0 +1,27 @@
+<section id="quemsomos" class="quem-somos-section">
+  <div class="container">
+    <h2 class="section-title">Quem Somos</h2>
+    
+    <div class="content-wrapper">
+      <p class="intro-text">
+        A <strong>Bertis Contabilidade</strong> nasceu da união entre mãe e filha, Sandra e Beatriz, ambas graduadas em Ciências Contábeis, com o propósito de tornar a contabilidade mais simples, moderna e estratégica.
+      </p>
+      
+      <div class="mission-box">
+        Somos uma contabilidade digital estratégica, focada em entregar agilidade, eficiência e clareza. 
+        Para nós, contabilidade é uma aliada poderosa para o crescimento e sucesso da sua empresa.
+      </div>
+    </div>
+
+    <h3 class="team-title">Sócias</h3>
+    <div class="team-grid">
+      <div *ngFor="let socia of socias" class="team-card">
+        <div class="photo-placeholder">
+          <img [src]="socia.foto" [alt]="socia.nome">
+        </div>
+        <h4>{{ socia.nome }}</h4>
+        <p>{{ socia.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>

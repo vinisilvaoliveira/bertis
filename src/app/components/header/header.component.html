@@ -1,16 +1,27 @@
-<nav class="navbar">
+<div class="navbar">
   <div class="nav-container">
     <div class="logo">
-      <img src="assets/logo-bertis-removebg.png" alt="BERTIS Assessoria e Contabilidade">
+      <img src="assets/logo-novo.png" alt="Logo Bertis">
     </div>
-    <a href="https://wa.me/5511988791883" target="_blank" class="btn-nav">
-      <lucide-icon [img]="icons.phone" class="btn-icon"></lucide-icon>
-      <span>Fale Conosco</span>
-    </a>
-  </div>
-</nav>
 
-<header class="hero-carousel">
+    <button class="menu-toggle" (click)="toggleMenu()">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav class="nav-links" [class.active]="isMenuOpen">
+      <a href="#inicio" (click)="toggleMenu()">Início</a>
+      <a href="#quemsomos" (click)="toggleMenu()">Quem Somos</a>
+      <a href="#paraquem" (click)="toggleMenu()">Quem atendemos</a>
+      <a href="#servicos" (click)="toggleMenu()">Nossos Serviços</a>
+      <a href="#contato" (click)="toggleMenu()">Contato</a>
+      <!-- <a href="https://wa.me/5511988791883" target="_blank" class="btn-nav-mobile">Fale Conosco</a> -->
+    </nav>
+  </div>
+</div>
+
+<header class="hero-carousel" id="inicio">
   <div 
     *ngFor="let slide of slides; let i = index" 
     class="slide" 
