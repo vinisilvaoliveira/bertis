@@ -101,7 +101,7 @@ padding: 30px 20px;
   padding: 30px;
   display: flex;
   align-items: center; // Centraliza verticalmente
-  justify-content: space-evenly; // Espaça o texto à esquerda e ícone à direita
+  justify-content: normal; // Espaça o texto à esquerda e ícone à direita
   gap: 20px;
   transition: all 0.4s ease;
   cursor: pointer;

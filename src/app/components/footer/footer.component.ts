@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LucideAngularModule, Phone, Instagram } from 'lucide-angular';
+import { LucideAngularModule, Phone, Instagram, Mail } from 'lucide-angular';
 
 @Component({
   selector: 'app-footer',
@@ -11,9 +11,11 @@ import { LucideAngularModule, Phone, Instagram } from 'lucide-angular';
 })
 export class FooterComponent {
   instagramBertis = '@bertiscontabil'
+  mailBertis = 'bertiscontabil@gmail.com'
   // Define o mapeamento exato usando os objetos reais da biblioteca
   readonly icons = {
     phone: Phone,
-    instagram: Instagram
+    instagram: Instagram,
+    mail: Mail
   };
 }

@@ -329,13 +329,27 @@ $color-text-light: #F5F5F5;
     background: none;
     border: none;
     cursor: pointer;
-
+    position: relative;
     .bar {
       width: 25px;
       height: 3px;
       background-color: white;
+        transition: all 0.4s;
     }
   }
+
+      /* vira X */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 7px);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(4px, -7px);
+    }
 
   .nav-links {
     display: flex;

@@ -4,7 +4,7 @@
       <img src="assets/logo-novo.png" alt="Logo Bertis">
     </div>
 
-    <button class="menu-toggle" (click)="toggleMenu()">
+    <button class="menu-toggle"  [class.active]="isMenuOpen" (click)="toggleMenu()">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
